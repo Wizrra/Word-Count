@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    
+    <div class="whole">
+
+      <h1>Word Count</h1>
+
+      <div class="boxes">
+        <div class="textarea">
+      <textarea name="textArea" id="textArea" cols="38px" rows="12px"></textarea>
+      </div>
+
+      <button onclick="enter()">Enter</button>
+  
+      <div class="response" id="response"></div>
+      </div>
+
+    </div>
+    <br/>
+
+  </body>
+  <script>
+    // // alert(okay)
+
+    // const textValue = document.getElementById("textArea");
+
+    // const response = document.getElementById("response");
+
+    // let text = String(textValue.value).trim();
+
+    // if (text === " ") {
+      
+    // }
+    
+    // let splitText = text.split(" ");
+    
+    // let filterText = splitText.filter((splitText) => splitText !== "");
+
+    
+    
+    
+    // function enter() {
+      
+    //   let correctwords = filterText.filter(filterText => {
+    //     if (filterText.length === 1) {
+          
+    //       return filterText === "a" || filterText === "i" || filterText === "A" || filterText === "I"
+          
+    //     } else {
+    //       return true
+    //     }
+    //   })  
+      
+      
+    //   console.log(correctwords);
+      
+    //   let wordCount = filterText.length;
+    // } enter();
+
+
+    function enter() {
+  const textarea = document.getElementById("textArea");
+  const response = document.getElementById("response");
+
+  
+  const text = textarea.value.trim();
+
+  if (text === "") {
+    response.innerText = "Box cannot be empty, type in something";
+    return;
+  }
+
+ 
+  const words = text.split(/\s+/);
+
+
+  const validWords = words.filter(word => {
+    if (word.length > 1) {
+      return true;
+    } else if (word === "a" || word === "A" || word === "i" || word === "I") {
+      return true;
+    } else
+    return false;
+  });
+
+  const count = validWords.length;
+
+  if (count === 0) {
+    response.innerText = "Box cannot be empty, type in something";
+  } else if (count === 1) {
+    response.innerText =` There is ${count} word in the box`;
+  } else {
+    response.innerText = `There are ${count} words in the box`;
+  }
+}
+
+    
+    // let wordCount = enter().length;
+
+    //   let showResponse = wordCount.response;
+    
+    // let showResponse = String(textValue.value)
+
+    // function showResponse() {
+    //   console.log(wordCount.response);
+      
+    //   // textValue.value = wordCount;
+    // }showResponse()
+
+  </script>
+</html>
+
+
+
